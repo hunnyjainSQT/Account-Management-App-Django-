@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container-fluid col-6">
+  {% for message in messages %}
+
+    <p id="message">{{ message }}</p>
+
+
+    {% endfor %}
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label name="username" for="exampleInputUsername" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" id="username">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword" class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" id="password">
+    </div>
+
+    <input type="submit" class="btn btn-primary btn-sm btn-center col-2" value="LogIn">
+  </form>
+
+  <br>
+
+  <p>Create New Account <a href="{% url 'register' %}">Register</a>  Forgot Password? <a href="{% url 'reset_password' %}">Reset</a></p>
+
+</div>
+
+
+
+
+
+{% endblock %}

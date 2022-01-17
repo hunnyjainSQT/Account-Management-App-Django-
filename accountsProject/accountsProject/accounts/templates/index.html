@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- <div class="col-md">
+            <div class="card card-body">
+                <h5>Customer:</h5>
+                <hr>
+                <a class="btn btn-outline-info  btn-sm btn-block" href="">Update Customer</a>
+                <a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Customer</a>
+    
+            </div>
+        </div> -->
+
+        <!-- <div class="col-md">
+            <div class="card card-body">
+                <h5>Contact Information</h5>
+                <hr>
+                <p>Email: </p>
+                <p>Phone: </p>
+            </div>
+        </div> -->
+
+        <div class="col-md">
+            <div class="card card-body">
+                <h5>Total Orders</h5>
+                <hr>
+                <h1 style="text-align: center;padding: 10px">{{ total_orders }}</h1>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card card-body">
+                <h5>Orders Delivered</h5>
+                <hr>
+                <h1 style="text-align: center;padding: 10px">{{ orders_delivered }}</h1>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card card-body">
+                <h5>Orders Pending</h5>
+                <hr>
+                <h1 style="text-align: center;padding: 10px">{{ orders_pending }}</h1>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card card-body">
+                <h5>Orders Processed</h5>
+                <hr>
+                <h1 style="text-align: center;padding: 10px">{{ orders_ofd }}</h1>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+<br>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <table class="table-info">
+                    <tr>
+                        <th>Customer</th>
+                        <th>Name</th>
+                        <th>Email</th>
+
+
+                    </tr>
+                    {% for customer in customers %}
+                    <tr>
+                        <td><a href="{% url 'customer' customer.id %}">View</a></td>
+                        <td>{{ customer.user.username }}</td>
+                        <td>{{ customer.user.email }}</td>
+                    </tr>
+                    {% endfor %}
+
+
+                </table>
+                <br>
+                <!-- <a href="add" class="btn btn-primary btn-sm btn-center col-4">Create Customer</a> -->
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card card-body">
+                <table class="table-info">
+                    <tr>
+                        <th>Product</th>
+                        <th>Date Orderd</th>
+                        <th>Status</th>
+                        <th>Update</th>
+                        <th>Remove</th>
+                    </tr>
+                    {% for order in orders %}
+                    <tr>
+
+                        <td>{{ order.product }}</td>
+                        <td>{{ order.date }}</td>
+                        <td>{{ order.status }}</td>
+                        <td><a href="{% url 'update_order' order.id %}">Update</a></td>
+                        <td><a href="{% url 'delete_order' order.id %}">Delete</a></td>
+
+
+                    </tr>
+                    {% endfor %}
+                </table>
+                <br>
+                <!-- <a href="create_order" class="btn btn-primary btn-sm btn-center col-4">Create Order</a> -->
+
+            </div>
+        </div>
+    </div>
+    <!-- <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+          
+          
+        <li><a href="{% url 'logout' %}" class="nav-link px-2 link-dark">LogOut</a></li>
+       
+        
+        
+    
+      </ul> -->
+
+</div>
+
+
+
+
+{% endblock %}

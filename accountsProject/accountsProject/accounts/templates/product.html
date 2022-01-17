@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+
+
+<div class="container-fluid">
+    {% for products in product %}
+
+    <h3>{{ products }}</h3>
+
+    {% endfor %}
+</div>
+
+
+
+
+
+{% endblock %}
