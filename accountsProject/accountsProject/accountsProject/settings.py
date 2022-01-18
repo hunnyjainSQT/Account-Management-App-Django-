@@ -24,7 +24,7 @@ SECRET_KEY = '!6v0a+@r%r&^(54+nuv@!%f=7*u7d$%3pk8q+*op^9$^(bh3#i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['hunnyaccountinfo.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['accountsmanagementapp.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
